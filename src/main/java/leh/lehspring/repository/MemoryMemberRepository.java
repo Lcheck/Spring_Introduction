@@ -18,7 +18,7 @@ public class MemoryMemberRepository implements MemberRepository {
     public Optional<Member> findById(Long id) {
         return Optional.ofNullable(store.get(id));
         //store.get(id)의 결과가 null일 것을 대비해 Optional객체로 감싸줌
-                ;
+
     }
     @Override
     public Optional<Member> findByName(String name) {
@@ -34,5 +34,9 @@ public class MemoryMemberRepository implements MemberRepository {
         return new ArrayList<>(store.values());
         //store의 값 목록을 ArrayList에 담아 반환한다.
 
+    }
+
+    public void clearStore(){
+        store.clear();
     }
 }
